@@ -1,7 +1,23 @@
 const express = require('express');
-
+const mysql = require('mysql')
 
 var server = express()
+
+var db = mysql.createConnection({
+    host:'localhost',
+    user:'root',
+    port:'3306',
+    password:'123qwe',
+    database:'20180511'
+})
+
+db.query("SELECT * FROM 'user_table';",  (err,data)=>{
+    if(err){
+        console.log('失败了')
+    }else {
+        console.log('成功了')
+    }
+})
 
 
 //mulu1: /user/
